@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Composite Test 1</title>
+    <link rel="stylesheet" href="css/dc.min.css" type="text/css"/>
+    <script type="text/javascript" src="jsModules/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/compositeStyles.css" type="text/css">
+
+    <script type="text/javascript" src="jsModules/d3.min.js"></script>
+    <script type="text/javascript" src="jsModules/crossfilter.min.js"></script>
+    <script type="text/javascript" src="jsModules/dc.min.js"></script>
+    <script type="text/javascript" src="jsModules/queue.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="cleanGraphsTest.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <script>
+        function alertScreen() {
+            alert('Please be aware This page contains D3 charts and the minimum screen size is 992px')
+        }
+        alertScreen();
+    </script>
+
+        <header class="container">
+            <nav class="navbar navbar-inverse" id="navBar1">
+            <div class="nav navbar-header">
+                <a class="navbar-brand" href="#">Disney Staff Data Base</a>
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target="#myList">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            </nav>
+        </header>
+
+
+    <section class="jumbotron container" id="jumbo">
+        <div class="container">
+            <h1>Bond Street Store</h1>
+            <p>This tool is for management only, please revise changes monthly</p>
+            <p><a class="btn btn-info btn-sm" href="#">Information for Schedule</a></p>
+        </div>
+    </section>
+    <div>
+        <article class="boxStyle">
+            <ul id="myList" class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#" id="graph0btn">Information</a></li>
+                <li><a data-toggle="tab" href="#mainGraphs" id="graph1btn">Salaries and Age</a></li>
+                <li><a data-toggle="tab" href="#pies" id="graph4btn">Salaries and Age pies</a></li>
+                <li><a data-toggle="tab" href="#chart-here2" id="graph5btn">Member Salary and city</a></li>
+                <li><a data-toggle="tab" href="#scatter-plot-graph" id="graph6btn">Member Salary and Age</a></li>
+                <li><a data-toggle="tab" href="#lastChart" id="graph7btn">Salaries by sector</a></li>
+            </ul>
+        </article>
+    </div>
+    <div class="container">
+        <div class="row tab-content">
+            <div class="tab-pane fade" id="mainGraphs">
+                <div class="col-md-12  text-center boxStyle" id="per-person-chart"><h2>Salary per person</h2></div>
+                <div class="col-md-12  text-center boxStyle" id="per-store-chart"><h2>Age and salary</h2></div>
+                <div class="col-md-12  text-center boxStyle" id="per-state-chart"><h2>City Total Salaries</h2></div>
+                    <script>crossFilter();</script>
+            </div>
+            <div class="col-md-12 text-center boxStyle tab-pane fade" id="chart-here2"><h3>Total Salary Per Person Broken Down By City</h3>
+                <script>stackedGraphs();</script>
+            </div>
+            <div class="col-md-12 text-center boxStyle tab-pane fade" id="scatter-plot-graph"><h3>Salaries and Birth</h3>
+            <script>scatterPlotGraph();</script>
+            </div>
+            <div class="tab-pane fade" id="pies">
+                <div class="col-md-4 text-center pieStyle" id="draw-pies1"><h3> Salary per person</h3></div>
+                <div class="col-md-4 text-center pieStyle" id="draw-pies2"><h3> City total salaries</h3></div>
+                <div class="col-md-4 text-center pieStyle" id="draw-pies3"><h3> Person age</h3>
+                    <script>pieChartsWoman();</script></div>
+            </div>
+            <div class="tab-pane fade boxStyle" id="lastChart">
+                <div class="text-center boxStyle"id="person-salary-chart">
+                    <h3>Total Salaries by Sector and city</h3>
+                    <div class="boxStyle"id="city-selector"></div>
+                    <script>selectRow();</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--end container-->
+<footer class="col-md-12 text-center">
+    <p>© Disney © Disney•Pixar © & ™ Lucasfilm LTD © Marvel. All Rights Reserved</p>
+</footer>
+</body>
+<!--<script src="events.js"></script>-->
+</html>
